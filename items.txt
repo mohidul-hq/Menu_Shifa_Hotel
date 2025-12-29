@@ -1,0 +1,58 @@
+# SHIFA HOTEL — Items (Name - Price)
+# You can use separators '-', '|', ',' or Tab between name and price.
+# Lines starting with '#' are comments and ignored. Price is numeric.
+
+Chicken Manchurian - 200
+Chilli Chicken - 240
+Ginger Chicken - 250
+Salt & Pepper Chicken - 280
+Chicken Burbura - 280
+Lemon Chicken - 270
+Chicken Drumstick Lollipop - 250
+Chicken Lollipop - 250
+Dragon Chicken - 290
+Crispy Chicken - 290
+Chicken Fry - 220
+Chicken Masala - 250
+Kadai Chicken - 250
+Chicken Do Pyaza - 270
+Butter Chicken - 300
+Chicken Kolapuri - 270
+Punjabi Chicken - 300
+Moghlai Chicken - 290
+Hyderabadi Chicken - 280
+Chicken Bhuna - 290
+Chicken Kassa - 300
+Chicken Keema - 350
+Chicken Reshmi Butter Masala - 350
+Chicken Korma - 320
+Shifa Hotel Special Gravy - 350
+Boiled Egg - 20
+Omelette (Single) - 30
+Omelette (Double) - 60
+Egg Bhurji (Half) - 75
+Egg Bhurji (Full) - 100
+Egg Masala - 150
+Egg Keema Masala - 200
+Egg 65 - 230
+Egg Chilly - 250
+Egg Biryani - 150
+Hyderabadi Dum Biryani - 150
+Fry Piece Biryani - 170
+Moghlai Biryani - 190
+Lollipop Biryani - 200
+Spicy Dum Biryani - 250
+Prawn Biryani - 380
+Fish Biryani - 300
+Chicken Tikka Biryani - 300
+Tandoor Chicken Biryani - 350
+Normal Shawarma - 120
+Special Shawarma - 150
+Shawarma Plate - 180
+Romali Roti - 40
+Butter Roti - 40
+Tandoor Roti - 30
+Plain Naan - 50
+Butter Naan - 60
+Garlic Naan - 70
+Lachha Paratha - 40
