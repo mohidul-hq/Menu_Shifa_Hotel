@@ -35,11 +35,13 @@
 		}
 		.bar {
 			display: flex; align-items: center; justify-content: space-between;
-			gap: 16px; padding: 16px 24px; max-width: 1200px; margin: 0 auto;
+			gap: 16px; padding: 16px 24px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;
 		}
-		.brand { font-weight: 700; letter-spacing: .4px; }
+		.brand { font-weight: 700; letter-spacing: .4px; display: flex; flex-direction: column; gap: 2px; }
 		.brand span { color: var(--accent); }
-		.bar-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+		.brand-sub { color: var(--muted); font-weight: 500; font-size: 12px; }
+		.bar-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; flex: 1 1 auto; }
+		@media (max-width: 640px) { .bar-right { gap: 10px; } }
 		.search { flex: 1 1 240px; min-width: 160px; max-width: 420px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.06); color: var(--text); outline: none; }
 		.search::placeholder { color: var(--muted); }
 		@media (max-width: 640px) { .search { flex: 1 1 100%; } }
@@ -47,6 +49,18 @@
 		.cart-pill { display: inline-flex; align-items: center; gap: 10px; background: var(--card); padding: 8px 14px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,.06); }
 		.cart-icon { width: 22px; height: 22px; display: grid; place-items: center; color: var(--accent-2); }
 		.cart-count { font-weight: 600; background: rgba(96,165,250,.15); color: var(--accent-2); padding: 4px 10px; border-radius: 999px; min-width: 28px; text-align: center; }
+
+		/* Dev-only controls */
+		.dev-hidden { display: none !important; }
+
+		/* Contact modal */
+		.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; align-items: center; justify-content: center; z-index: 50; }
+		.modal-backdrop.show { display: flex; }
+		.modal { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; box-shadow: var(--shadow); width: 92vw; max-width: 520px; padding: 18px; color: var(--text); }
+		.modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+		.modal-title { font-weight: 700; }
+		.modal-close { padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,.08); background: rgba(239,68,68,.15); color: #440a0a; cursor: pointer; }
+		.contact-list { display: grid; gap: 8px; }
 
 		.layout { display: grid; grid-template-columns: 1fr 340px; gap: 24px; max-width: 1200px; margin: 24px auto; padding: 0 24px; }
 		@media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .cart { position: fixed; bottom: 0; left: 0; right: 0; max-height: 48vh; } }
@@ -107,11 +121,15 @@
 <body>
 	<header>
 		<div class="bar">
-			<div class="brand">SHIFA <span>HOTEL</span> — Menu</div>
+			<div class="brand">
+				<div>SHIFA <span>HOTEL</span> — Digital Menu</div>
+				<div class="brand-sub">Fast, searchable, drag & drop cart</div>
+			</div>
 			<div class="bar-right">
 				<input class="search" id="search" type="search" placeholder="Search menu…" aria-label="Search menu" />
-				<button class="btn" id="load-items-btn" title="Load items.txt">Load items.txt</button>
+				<button class="btn dev-hidden" id="load-items-btn" title="Load items.txt">Load items.txt</button>
 				<input type="file" id="file-input" accept=".txt,text/plain" style="display:none" />
+				<button class="btn" id="contact-btn" title="Contact">Contact</button>
 				<div class="cart-pill" id="cart-pill" role="button" aria-label="Open cart" tabindex="0">
 					<div class="cart-icon" aria-hidden="true">🛒</div>
 					<div>Cart</div>
@@ -140,6 +158,28 @@
 			<div class="cart-empty" id="cart-empty">Drop items here to add them.</div>
 		</aside>
 	</main>
+
+	<!-- Contact modal -->
+	<div class="modal-backdrop" id="contact-backdrop" aria-hidden="true">
+		<div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+			<div class="modal-head">
+				<div id="contact-title" class="modal-title">Contact</div>
+				<button class="modal-close" id="contact-close" title="Close">Close</button>
+			</div>
+			<div class="contact-list">
+				<div><strong>Phone:</strong> <a href="tel:+" style="color: var(--accent-2);">+91 933205840</a></div>
+				<div><strong>WhatsApp:</strong> <a href="https://wa.me/919531936080" target="_blank" rel="noopener" style="color: var(--accent);">Message us</a></div>
+				<div><strong>Address:</strong> Near Mahindar Showroom Bathu Basti, Garacharma, Sri Vijaya Puram, South Andaman</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer contact section -->
+	<footer style="max-width:1200px; margin:24px auto; padding:0 24px; color: var(--muted);">
+		<h3 style="margin:0 0 8px 0;">Contact</h3>
+		<p>Phone: +88 01XXXXXXXXX • Address: Shifa Hotel, Your City</p>
+	</footer>
 
 	<script>
 		const fallbackItems = [
@@ -384,6 +424,18 @@
 			});
 		}
 
+		function setupContactUI() {
+			const btn = document.getElementById('contact-btn');
+			const backdrop = document.getElementById('contact-backdrop');
+			const closeBtn = document.getElementById('contact-close');
+			const open = () => { backdrop.classList.add('show'); backdrop.setAttribute('aria-hidden', 'false'); };
+			const close = () => { backdrop.classList.remove('show'); backdrop.setAttribute('aria-hidden', 'true'); };
+			btn.addEventListener('click', open);
+			closeBtn.addEventListener('click', close);
+			backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });
+			document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+		}
+
 		function setupCartToggle() {
 			const cartEl = document.getElementById('cart');
 			const toggle = document.getElementById('cart-toggle');
@@ -452,6 +504,7 @@
 			setupSearch();
 			setupManualLoad();
 			setupCartDnD();
+			setupContactUI();
 			setupCartToggle();
 		})();
 	</script>
