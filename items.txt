@@ -1,7 +1,8 @@
 # SHIFA HOTEL — Items (Name - Price)
-# You can use separators '-', '|', ',' or Tab between name and price.
-# Lines starting with '#' are comments and ignored. Price is numeric.
+# Separator used: Name - Price
+# Price is numeric only
 
+[Non Veg. Starters]
 Chicken Manchurian - 200
 Chilli Chicken - 240
 Ginger Chicken - 250
@@ -13,6 +14,8 @@ Chicken Lollipop - 250
 Dragon Chicken - 290
 Crispy Chicken - 290
 Chicken Fry - 220
+
+[Chicken Gravy]
 Chicken Masala - 250
 Kadai Chicken - 250
 Chicken Do Pyaza - 270
@@ -27,6 +30,8 @@ Chicken Keema - 350
 Chicken Reshmi Butter Masala - 350
 Chicken Korma - 320
 Shifa Hotel Special Gravy - 350
+
+[Egg]
 Boiled Egg - 20
 Omelette (Single) - 30
 Omelette (Double) - 60
@@ -36,6 +41,8 @@ Egg Masala - 150
 Egg Keema Masala - 200
 Egg 65 - 230
 Egg Chilly - 250
+
+[Biryani]
 Egg Biryani - 150
 Hyderabadi Dum Biryani - 150
 Fry Piece Biryani - 170
@@ -46,13 +53,86 @@ Prawn Biryani - 380
 Fish Biryani - 300
 Chicken Tikka Biryani - 300
 Tandoor Chicken Biryani - 350
+
+[Non Veg Rice]
+Chicken Fried Rice - 160
+Egg Fried Rice - 150
+
+[Tandoor Snacks]
+Chicken Tikka - 300
+Tandoor Chicken (Half) - 300
+Tandoor Chicken (Full) - 600
+Reshmi Kebab - 300
+Alfam (Half) - 350
+Alfam (Full) - 600
+
+[Non Veg Roll & Noodles]
 Normal Shawarma - 120
 Special Shawarma - 150
 Shawarma Plate - 180
+
+[Veg Starters]
+Paneer Manchurian - 200
+Paneer Chilly - 210
+Paneer 65 - 200
+Paneer Mega Stick - 230
+Gobi 65 - 220
+Gobi Chilly - 230
+Gobi Manchurian - 210
+Baby Corn Chilly - 230
+Baby Corn 65 - 210
+Baby Corn Manchurian - 220
+Mushroom 65 - 230
+Mushroom Chilly - 240
+Crispy Chilly Baby Corn - 240
+
+[Veg Gravy]
+Dal Fry - 170
+Dal Tadka - 190
+Butter Dal - 200
+Veg Kadai - 200
+Veg Kolhapuri - 200
+Mix Veg - 220
+Kadai Paneer - 230
+Mutter Paneer - 230
+Paneer Masala - 200
+Paneer Do Pyaza - 240
+Paneer Butter Masala - 250
+Mushroom Masala - 240
+Malai Kofta - 280
+Kaju Masala - 300
+Kaju Paneer Masala - 320
+Shahi Paneer - 350
+Paneer Makhani - 370
+Veg Hyderabadi - 250
+
+[Roti & Paratha]
 Romali Roti - 40
 Butter Roti - 40
 Tandoor Roti - 30
 Plain Naan - 50
 Butter Naan - 60
 Garlic Naan - 70
+Plain Kulcha - 50
+Poori Paratha - 50
+Seloon Paratha - 50
 Lachha Paratha - 40
+
+[Rice]
+Lemon Rice - 140
+Jeera Rice - 140
+Veg Fried Rice - 140
+Baby Corn Fried Rice - 190
+Gobi Fried Rice - 190
+Veg Schezwan Fried Rice - 180
+Mushroom Fried Rice - 200
+Paneer Fried Rice - 200
+Veg Biryani - 150
+Ghee Rice - 200
+
+[Noodles]
+Veg Noodles - 120
+Veg Schezwan Noodles - 180
+Mushroom Noodles - 180
+Gobi Noodles - 180
+Paneer Noodles - 180
